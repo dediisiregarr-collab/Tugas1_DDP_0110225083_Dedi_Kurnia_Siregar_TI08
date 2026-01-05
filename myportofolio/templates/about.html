@@ -1,0 +1,141 @@
+{% extends 'index.html' %}
+
+{% block title %}About Me - My Profile{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1><i class="fas fa-user-graduate icon-float"></i> About Me</h1>
+        <p class="lead">My Educational Journey & Organizational Experience</p>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card gradient-card">
+                <div class="card-body p-5 text-center">
+                    <i class="fas fa-quote-left fa-2x mb-3" style="opacity: 0.5;"></i>
+                    <h4 class="mb-4" style="font-weight: 300; line-height: 1.8;">
+                        "Pendidikan adalah paspor menuju masa depan, karena hari esok adalah milik mereka yang mempersiapkannya hari ini."
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-5">
+        <div class="card-body p-0">
+            <div class="p-4" style="background: var(--primary-gradient);">
+                <h3 class="mb-0 text-white">
+                    <i class="fas fa-graduation-cap"></i> Educational Background
+                </h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead style="background: rgba(102, 126, 234, 0.1);">
+                        <tr>
+                            <th width="5%" class="text-center" style="border: none; padding: 20px 10px;">
+                                <i class="fas fa-hashtag"></i>
+                            </th>
+                            <th width="30%" style="border: none; padding: 20px;">
+                                <i class="fas fa-book"></i> Degree / Major
+                            </th>
+                            <th width="35%" style="border: none; padding: 20px;">
+                                <i class="fas fa-university"></i> Institution
+                            </th>
+                            <th width="20%" style="border: none; padding: 20px;">
+                                <i class="fas fa-calendar"></i> Period
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for edu in education %}
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td class="text-center align-middle" style="padding: 25px 10px;">
+                                <div style="width: 35px; height: 35px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin: 0 auto;">
+                                    {{ forloop.counter }}
+                                </div>
+                            </td>
+                            <td class="align-middle" style="padding: 25px 20px;">
+                                <strong style="font-size: 1.1rem; color: var(--dark-color);">{{ edu.degree }}</strong>
+                            </td>
+                            <td class="align-middle" style="padding: 25px 20px;">
+                                <span style="color: #666;">{{ edu.institution }}</span>
+                            </td>
+                            <td class="align-middle" style="padding: 25px 20px;">
+                                <span class="badge" style="background: var(--success-gradient); padding: 8px 15px; font-size: 0.9rem;">
+                                    {{ edu.year }}
+                                </span>
+                            </td>
+                            <td class="text-center align-middle" style="padding: 25px 10px;">
+                                <span class="badge" style="background: var(--warning-gradient); padding: 10px 15px; font-size: 1rem; font-weight: 600;">
+                                    {{ edu.gpa }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-5">
+        <div class="card-body p-0">
+            <div class="p-4" style="background: var(--secondary-gradient);">
+                <h3 class="mb-0 text-white">
+                    <i class="fas fa-users"></i> Organizational Experience
+                </h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead style="background: rgba(245, 87, 108, 0.1);">
+                        <tr>
+                            <th width="5%" class="text-center" style="border: none; padding: 20px 10px;">
+                                <i class="fas fa-hashtag"></i>
+                            </th>
+                            <th width="30%" style="border: none; padding: 20px;">
+                                <i class="fas fa-sitemap"></i> Organization
+                            </th>
+                            <th width="20%" style="border: none; padding: 20px;">
+                                <i class="fas fa-id-badge"></i> Position
+                            </th>
+                            <th width="15%" style="border: none; padding: 20px;">
+                                <i class="fas fa-clock"></i> Period
+                            </th>
+                            <th width="30%" style="border: none; padding: 20px;">
+                                <i class="fas fa-info-circle"></i> Description
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for org in organizations %}
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td class="text-center align-middle" style="padding: 25px 10px;">
+                                <div style="width: 35px; height: 35px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin: 0 auto;">
+                                    {{ forloop.counter }}
+                                </div>
+                            </td>
+                            <td class="align-middle" style="padding: 25px 20px;">
+                                <strong style="font-size: 1.1rem; color: var(--dark-color);">{{ org.name }}</strong>
+                            </td>
+                            <td class="align-middle" style="padding: 25px 20px;">
+                                <span class="badge" style="background: var(--primary-gradient); padding: 8px 15px; font-size: 0.9rem;">
+                                    {{ org.position }}
+                                </span>
+                            </td>
+                            <td class="align-middle" style="padding: 25px 20px;">
+                                <span style="color: #666; font-weight: 500;">{{ org.period }}</span>
+                            </td>
+                            <td class="align-middle" style="padding: 25px 20px;">
+                                <span style="color: #666;">{{ org.description }}</span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
